@@ -1,0 +1,73 @@
+// Lista de alertas de exemplo usada enquanto o app nao possui um banco de dados.
+import 'package:latlong2/latlong.dart';
+import '../models/alerta.dart';
+
+const cityCenter = LatLng(-23.5613, -46.6565);
+
+const seedAlerts = <CommunityAlert>[
+  CommunityAlert(
+    id: 'a1',
+    category: AlertCategory.assalto,
+    risk: RiskLevel.critico,
+    title: 'Assalto a pedestre',
+    description: 'Dupla em moto abordou pedestre na esquina. Policia acionada.',
+    street: 'Rua Augusta - Cerqueira César',
+    lat: -23.5603320,
+    lng: -46.6625270,
+    minutesAgo: 12,
+    author: 'Marina S.',
+    confirmations: 8,
+  ),
+  CommunityAlert(
+    id: 'a2',
+    category: AlertCategory.suspeito,
+    risk: RiskLevel.medio,
+    title: 'Movimentacao suspeita',
+    description: 'Carro prata parado ha mais de uma hora com dois ocupantes.',
+    street: 'Rua Haddock Lobo - Jardim América',
+    lat: -23.5620377,
+    lng: -46.6659896,
+    minutesAgo: 47,
+    author: 'Anonimo',
+    confirmations: 3,
+  ),
+  CommunityAlert(
+    id: 'a3',
+    category: AlertCategory.iluminacao,
+    risk: RiskLevel.medio,
+    title: 'Rua sem iluminacao',
+    description: 'Tres postes apagados no quarteirao inteiro desde ontem.',
+    street: 'Rua Bela Cintra - Consolação',
+    lat: -23.5527377,
+    lng: -46.6560256,
+    minutesAgo: 180,
+    author: 'Carlos M.',
+    confirmations: 12,
+  ),
+  CommunityAlert(
+    id: 'a4',
+    category: AlertCategory.animais,
+    risk: RiskLevel.medio,
+    title: 'Cao solto na via',
+    description: 'Cachorro de grande porte sem coleira circulando na calcada.',
+    street: 'Alameda Santos, 1200 - Cerqueira César',
+    lat: -23.5650419,
+    lng: -46.6540879,
+    minutesAgo: 90,
+    author: 'Julia P.',
+    confirmations: 2,
+  ),
+  CommunityAlert(
+    id: 'a5',
+    category: AlertCategory.segura,
+    risk: RiskLevel.seguro,
+    title: 'Area monitorada',
+    description: 'Ronda comunitaria ativa e cameras novas instaladas na praca.',
+    street: 'Praça Alexandre de Gusmão - Jardim Paulista',
+    lat: -23.5636530,
+    lng: -46.6568022,
+    minutesAgo: 300,
+    author: 'Associacao de Bairro',
+    confirmations: 21,
+  ),
+];

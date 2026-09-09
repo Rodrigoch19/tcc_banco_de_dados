@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "409195957863",
+    "project_id": "teste-tcc-446d5",
+    "storage_bucket": "teste-tcc-446d5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409195957863:android:57475a702ce9840f404ec2",
+        "android_client_info": {
+          "package_name": "com.example.safeneighbor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQUqwdzuy0_wlid54a4NIM8FoiD_Kc630"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
