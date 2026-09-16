@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../theme/tema_aplicativo.dart';
 import 'logo_aplicativo.dart';
 
-enum MenuTab { chat, mapa, grupos, perfil }
+enum MenuTab { chat, mapa, alertas, perfil }
 
 class _MenuItem {
   const _MenuItem(this.tab, this.label, this.icon);
@@ -17,7 +17,7 @@ class _MenuItem {
 const _items = [
   _MenuItem(MenuTab.chat, 'Chat', Icons.chat_bubble_outline),
   _MenuItem(MenuTab.mapa, 'Mapa', Icons.map_outlined),
-  _MenuItem(MenuTab.grupos, 'Grupos', Icons.groups_outlined),
+  _MenuItem(MenuTab.alertas, 'Alertas', Icons.notifications_active_outlined),
   _MenuItem(MenuTab.perfil, 'Perfil', Icons.person_outline),
 ];
 

@@ -15,7 +15,7 @@ import '../widgets/painel_autenticacao.dart';
 import '../widgets/painel_novo_alerta.dart';
 import '../widgets/menu_lateral.dart';
 import 'tela_conversas.dart';
-import 'tela_grupos.dart';
+import 'tela_alertas.dart';
 import 'tela_mapa.dart';
 import 'tela_perfil.dart';
 
@@ -190,7 +190,7 @@ class _TelaInicialState extends State<TelaInicial> {
       return;
     }
 
-    if (tab == MenuTab.grupos) {
+    if (tab == MenuTab.alertas) {
       _openProtectedTab(
         tab,
         reason: 'Entre nos grupos da sua vizinhança.',
@@ -244,7 +244,7 @@ class _TelaInicialState extends State<TelaInicial> {
 
   int _tabIndex() {
     if (_tab == MenuTab.chat) return 1;
-    if (_tab == MenuTab.grupos) return 2;
+    if (_tab == MenuTab.alertas) return 2;
     if (_tab == MenuTab.perfil) return 3;
     return 0;
   }
@@ -254,10 +254,10 @@ class _TelaInicialState extends State<TelaInicial> {
     if (sheetSize != null) _snap(sheetSize);
   }
 
-  void _openAlertChat(CommunityAlert alert) {
+  void _openAlertChat(CommunityAlert _) {
     _requireAuth(
       'Converse no chat comunitário do seu bairro.',
-      () => _toast('Chat aberto: ${alert.title}'),
+      () => _openTab(MenuTab.chat, message: 'Chat com IA aberto'),
     );
   }
 
@@ -304,11 +304,12 @@ class _TelaInicialState extends State<TelaInicial> {
                   onFocus: _focusAlert,
                   onChat: _openAlertChat,
                 ),
-                ChatScreen(
+                const ChatScreen(),
+                AlertsScreen(
                   alerts: visible,
-                  onOpen: _openAlertChat,
+                  onFocus: _focusAlert,
+                  onChat: () => _onTab(MenuTab.chat),
                 ),
-                const GroupsScreen(),
                 const ProfileScreen(),
               ],
             ),
