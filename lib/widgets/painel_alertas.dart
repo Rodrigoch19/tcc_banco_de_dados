@@ -37,6 +37,40 @@ class AlertsSheet extends StatelessWidget {
     return RiskLevel.medio;
   }
 
+  void _resizeByDrag(double delta, double height) {
+    if (!controller.isAttached || height <= 0) return;
+    final size =
+        (controller.size - delta / height).clamp(0.15, 0.85).toDouble();
+    controller.jumpTo(size);
+  }
+
+  void _snapToNearestSize() {
+    if (!controller.isAttached) return;
+    const sizes = [0.15, 0.42, 0.85];
+    final currentSize = controller.size;
+    final target = sizes.reduce(
+      (closest, size) =>
+          (size - currentSize).abs() < (closest - currentSize).abs()
+              ? size
+              : closest,
+    );
+    controller.animateTo(
+      target,
+      duration: const Duration(milliseconds: 180),
+      curve: Curves.easeOutCubic,
+    );
+  }
+
+  void _expandOnTap() {
+    if (!controller.isAttached) return;
+    final target = controller.size < 0.42 ? 0.42 : 0.85;
+    controller.animateTo(
+      target,
+      duration: const Duration(milliseconds: 240),
+      curve: Curves.easeOutCubic,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final status = _status;
@@ -55,17 +89,33 @@ class AlertsSheet extends StatelessWidget {
             controller: scrollController,
             padding: const EdgeInsets.fromLTRB(20, 12, 20, 120),
             children: [
-              Center(
-                child: Container(
-                  width: 42,
-                  height: 5,
-                  decoration: BoxDecoration(
-                    color: Colors.white24,
-                    borderRadius: BorderRadius.circular(999),
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: _expandOnTap,
+                onVerticalDragUpdate: (details) => _resizeByDrag(
+                  details.delta.dy,
+                  MediaQuery.sizeOf(context).height,
+                ),
+                onVerticalDragEnd: (_) => _snapToNearestSize(),
+                child: Semantics(
+                  button: true,
+                  label: 'Arraste para cima para expandir os alertas',
+                  child: SizedBox(
+                    height: 32,
+                    child: Center(
+                      child: Container(
+                        width: 42,
+                        height: 5,
+                        decoration: BoxDecoration(
+                          color: Colors.white38,
+                          borderRadius: BorderRadius.circular(999),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 4),
               Row(
                 children: [
                   LoopAnimation(
