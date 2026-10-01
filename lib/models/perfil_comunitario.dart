@@ -56,20 +56,6 @@ const communityBadges = <CommunityBadge>[
     requiredPoints: 20,
     icon: Icons.remove_red_eye_outlined,
   ),
-  CommunityBadge(
-    id: 'voz-da-comunidade',
-    label: 'Voz da comunidade',
-    description: 'Participa ativamente das conversas locais.',
-    requiredPoints: 50,
-    icon: Icons.record_voice_over_outlined,
-  ),
-  CommunityBadge(
-    id: 'guardiao',
-    label: 'Guardião',
-    description: 'É uma referência de cuidado e colaboração.',
-    requiredPoints: 100,
-    icon: Icons.shield_outlined,
-  ),
 ];
 
 @immutable

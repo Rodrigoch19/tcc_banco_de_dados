@@ -4,7 +4,7 @@ import '../theme/tema_aplicativo.dart';
 
 enum RiskLevel {
   critico('Área crítica', AppColors.critical),
-  medio('Perigo', AppColors.medium);
+  medio('Área de perigo', AppColors.medium);
 
   const RiskLevel(this.label, this.color);
 
@@ -15,7 +15,8 @@ enum RiskLevel {
 enum AlertCategory {
   assalto('Assalto', Icons.warning_amber_rounded, RiskLevel.critico),
   acidente('Acidente', Icons.car_crash_outlined, RiskLevel.medio),
-  incendio('Incendio', Icons.local_fire_department_outlined, RiskLevel.critico);
+  incendio('Incêndio', Icons.local_fire_department_outlined, RiskLevel.critico),
+  furto('Furto', Icons.lock_open_outlined, RiskLevel.medio);
 
   const AlertCategory(this.label, this.icon, this.defaultRisk);
 
