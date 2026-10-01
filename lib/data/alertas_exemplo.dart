@@ -16,7 +16,7 @@ const seedAlerts = <CommunityAlert>[
     lng: -46.6625270,
     minutesAgo: 12,
     author: 'Marina S.',
-    confirmations: 8,
+    confirmations: 10,
   ),
   CommunityAlert(
     id: 'a2',
@@ -49,7 +49,8 @@ const seedAlerts = <CommunityAlert>[
     category: AlertCategory.furto,
     risk: RiskLevel.medio,
     title: 'Furto de bicicleta',
-    description: 'Bicicleta furtada próximo à estação. Alerta compartilhado por moradores.',
+    description:
+        'Bicicleta furtada próximo à estação. Alerta compartilhado por moradores.',
     street: 'Avenida Paulista - Bela Vista',
     lat: -23.5644200,
     lng: -46.6528300,
